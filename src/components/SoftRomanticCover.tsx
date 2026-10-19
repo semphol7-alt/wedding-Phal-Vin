@@ -1,15 +1,17 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Sparkles, Download, Heart, ArrowRight } from 'lucide-react';
+import { Sparkles, Download, Heart, ArrowRight, Send } from 'lucide-react';
 import { Language } from '../types';
 
 interface SoftRomanticCoverProps {
   onOpenInvitation: () => void;
+  onOpenShare?: () => void;
   lang: Language;
 }
 
 export const SoftRomanticCover: React.FC<SoftRomanticCoverProps> = ({
   onOpenInvitation,
+  onOpenShare,
   lang,
 }) => {
   const handleDownloadWallpaper = () => {
@@ -114,16 +116,16 @@ export const SoftRomanticCover: React.FC<SoftRomanticCoverProps> = ({
 
           {/* Large centered stylized elegant Khmer names */}
           <h1 className="font-khmer-title text-2xl sm:text-3xl text-[#2F4234] leading-tight drop-shadow tracking-wide">
-            ស៊ឹម សុផល &amp; ម៉ាក់ កញ្ញាដាវីន
+            សុផល &amp; កញ្ញាដាវីន
           </h1>
 
           {/* Couple English Names */}
           <div className="mt-2 flex flex-col items-center">
             <p className="font-cursive text-2xl sm:text-3xl text-[#415646] font-medium leading-none">
-              Sem Sophal &amp; Mak Kanhadavin
+              Sophal &amp; Kanhadavin
             </p>
             <span className="font-royal text-[11px] tracking-[0.2em] text-[#3E5242] font-bold uppercase mt-1">
-              SEM SOPHAL &amp; MAK KANHADAVIN
+              SOPHAL &amp; KANHADAVIN
             </span>
           </div>
 
@@ -161,8 +163,8 @@ export const SoftRomanticCover: React.FC<SoftRomanticCoverProps> = ({
             សូមស្វាគមន៍អញ្ជើញ
           </p>
 
-          {/* Action Buttons: Open Invitation & Download Wallpaper */}
-          <div className="flex flex-col sm:flex-row items-center gap-2 w-full max-w-[320px]">
+          {/* Action Buttons: Open Invitation, Share & Download Wallpaper */}
+          <div className="flex flex-col items-center gap-2 w-full max-w-[320px]">
             <button
               onClick={onOpenInvitation}
               className="w-full py-3 px-5 rounded-full bg-gradient-to-r from-[#3E5242] via-[#4F6955] to-[#2E3E32] text-white hover:opacity-95 font-khmer font-bold text-sm tracking-wide shadow-[0_8px_20px_rgba(46,62,50,0.3)] flex items-center justify-center gap-2 transition-all hover:scale-[1.02] cursor-pointer"
@@ -171,14 +173,26 @@ export const SoftRomanticCover: React.FC<SoftRomanticCoverProps> = ({
               <ArrowRight className="w-4 h-4" />
             </button>
 
-            <button
-              onClick={handleDownloadWallpaper}
-              title="Save 9:16 Mobile Wallpaper"
-              className="py-2.5 px-4 rounded-full bg-white/80 hover:bg-white text-[#3E5242] border border-[#BAC9BE] text-xs font-khmer font-semibold flex items-center justify-center gap-1.5 shadow-sm transition-all cursor-pointer whitespace-nowrap"
-            >
-              <Download className="w-3.5 h-3.5 text-[#3E5242]" />
-              <span>{lang === 'km' ? 'ទាញយករូប Wallpaper' : 'Save Wallpaper'}</span>
-            </button>
+            <div className="flex items-center gap-2 w-full">
+              {onOpenShare && (
+                <button
+                  onClick={onOpenShare}
+                  className="flex-1 py-2 px-3 rounded-full bg-[#0088CC] hover:bg-[#0077B5] text-white text-xs font-khmer font-semibold flex items-center justify-center gap-1.5 shadow-sm transition-all cursor-pointer whitespace-nowrap"
+                >
+                  <Send className="w-3.5 h-3.5 fill-current" />
+                  <span>{lang === 'km' ? 'ផ្ញើធៀប Telegram' : 'Share Link'}</span>
+                </button>
+              )}
+
+              <button
+                onClick={handleDownloadWallpaper}
+                title="Save 9:16 Mobile Wallpaper"
+                className="flex-1 py-2 px-3 rounded-full bg-white/85 hover:bg-white text-[#3E5242] border border-[#BAC9BE] text-xs font-khmer font-semibold flex items-center justify-center gap-1.5 shadow-sm transition-all cursor-pointer whitespace-nowrap"
+              >
+                <Download className="w-3.5 h-3.5 text-[#3E5242]" />
+                <span>{lang === 'km' ? 'Wallpaper 9:16' : 'Wallpaper'}</span>
+              </button>
+            </div>
           </div>
         </motion.div>
       </motion.div>

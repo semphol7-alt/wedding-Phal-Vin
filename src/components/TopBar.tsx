@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Globe } from 'lucide-react';
+import { Mail, Globe, Send, Share2 } from 'lucide-react';
 import { KhmerAudioController } from './AudioPlayer';
 import { Language } from '../types';
 
@@ -8,6 +8,7 @@ interface TopBarProps {
   onLanguageChange: (lang: Language) => void;
   onReopenEnvelope: () => void;
   onViewCover?: () => void;
+  onOpenShare?: () => void;
   autoPlayTrigger?: boolean;
 }
 
@@ -16,6 +17,7 @@ export const TopBar: React.FC<TopBarProps> = ({
   onLanguageChange,
   onReopenEnvelope,
   onViewCover,
+  onOpenShare,
   autoPlayTrigger,
 }) => {
   return (
@@ -43,17 +45,27 @@ export const TopBar: React.FC<TopBarProps> = ({
               <span>{lang === 'km' ? 'ក្របសំបុត្រ' : 'Cover'}</span>
             </button>
           )}
+
+          {onOpenShare && (
+            <button
+              onClick={onOpenShare}
+              title={lang === 'km' ? 'ចែករំលែកធៀបតាម Telegram / Messenger' : 'Share Invitation'}
+              className="p-1.5 rounded-full border border-[#D4AF37]/40 bg-[#0B4F3B]/90 text-[#FFE58F] hover:bg-[#0E5C46] transition-colors cursor-pointer"
+            >
+              <Send className="w-3.5 h-3.5" />
+            </button>
+          )}
         </div>
 
         {/* Center: Names */}
-        <div className="flex items-center truncate max-w-[140px] sm:max-w-none">
+        <div className="flex items-center truncate max-w-[130px] sm:max-w-none">
           <span className="font-cursive text-base sm:text-lg gold-text-gradient leading-none truncate">
             Sem Sophal &amp; Mak Kanhadavin
           </span>
         </div>
 
         {/* Right Zone: Audio Controller + Language Switcher (ខ្មែរ / EN) */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5">
           {/* Audio controller */}
           <KhmerAudioController autoStartTrigger={autoPlayTrigger} lang={lang} />
 

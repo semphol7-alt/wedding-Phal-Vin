@@ -4,6 +4,8 @@
   :root {
     --khmer-font: 'Kantumruy Pro', system-ui, sans-serif;
     --khmer-title-font: 'Moul', serif;
+    --khmer-calligraphy-font: 'Suwannaphum', serif;
+    --khmer-ornate-font: 'Preahvihear', cursive;
     --royal-font: 'Cinzel', serif;
     --cursive-font: 'Great Vibes', cursive;
     --editorial-font: 'Cormorant Garamond', serif;
@@ -23,6 +25,14 @@
 
 .font-khmer-title {
   font-family: var(--khmer-title-font);
+}
+
+.font-khmer-calligraphy {
+  font-family: var(--khmer-calligraphy-font);
+}
+
+.font-khmer-ornate {
+  font-family: var(--khmer-ornate-font);
 }
 
 .font-royal {

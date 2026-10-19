@@ -1,0 +1,268 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --khmer-font: 'Kantumruy Pro', system-ui, sans-serif;
+    --khmer-title-font: 'Moul', serif;
+    --royal-font: 'Cinzel', serif;
+    --cursive-font: 'Great Vibes', cursive;
+    --editorial-font: 'Cormorant Garamond', serif;
+  }
+
+  body {
+    background-color: #041f17;
+    color: #f7f3e8;
+    font-family: var(--khmer-font);
+    overflow-x: hidden;
+  }
+}
+
+.font-khmer {
+  font-family: var(--khmer-font);
+}
+
+.font-khmer-title {
+  font-family: var(--khmer-title-font);
+}
+
+.font-royal {
+  font-family: var(--royal-font);
+}
+
+.font-cursive {
+  font-family: var(--cursive-font);
+}
+
+.font-editorial {
+  font-family: var(--editorial-font);
+}
+
+/* Gold Gradient Text */
+.gold-text-gradient {
+  background: linear-gradient(135deg, #ECC876 0%, #FFF3C4 28%, #D4AF37 55%, #AA771C 82%, #F9E79F 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-text-subtle {
+  background: linear-gradient(135deg, #f2dc9b 0%, #dfb758 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Gold Foil Border */
+.gold-border {
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.15), inset 0 0 8px rgba(212, 175, 55, 0.08);
+}
+
+.gold-border-double {
+  border: 2px solid rgba(212, 175, 55, 0.6);
+  outline: 1px solid rgba(212, 175, 55, 0.3);
+  outline-offset: -5px;
+}
+
+/* Deep Emerald Background with Khmer Damask Motifs */
+.bg-khmer-emerald {
+  background-color: #03231a;
+  background-image: 
+    radial-gradient(circle at 50% 20%, rgba(13, 85, 63, 0.6) 0%, rgba(2, 28, 20, 0.95) 75%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d4af37' fill-opacity='0.055' fill-rule='evenodd'%3E%3Cpath d='M30 30L15 15l15-15 15 15-15 15zm0 0l15 15-15 15-15-15 15-15zm-15-5l5-5-5-5-5 5 5 5zm30 0l5-5-5-5-5 5 5 5zm0 10l5 5-5 5-5-5 5-5zm-30 0l5 5-5 5-5-5 5-5z'/%3E%3Ccircle cx='30' cy='30' r='3' fill='%23d4af37' fill-opacity='0.08'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.bg-khmer-pattern-dense {
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20L0 0h40L20 20zm0 0l20 20H0L20 20zm-10 0l10-10 10 10-10 10-10-10z' fill='%23e0bb53' fill-opacity='0.038' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+/* Gold Button with Shimmer */
+.btn-gold {
+  background: linear-gradient(135deg, #D4AF37 0%, #F5E084 50%, #B8860B 100%);
+  color: #1a1402;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.6);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-gold:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 25px rgba(245, 224, 132, 0.55), inset 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.btn-gold:active {
+  transform: translateY(1px);
+}
+
+.btn-gold::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 40%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.45) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(25deg);
+  animation: gold-sweep 3.5s infinite;
+}
+
+@keyframes gold-sweep {
+  0% {
+    left: -70%;
+  }
+  30% {
+    left: 140%;
+  }
+  100% {
+    left: 140%;
+  }
+}
+
+/* Ornate Corner Accents */
+.ornate-corner {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+}
+.ornate-tl {
+  top: 6px;
+  left: 6px;
+  border-top: 2px solid #D4AF37;
+  border-left: 2px solid #D4AF37;
+}
+.ornate-tr {
+  top: 6px;
+  right: 6px;
+  border-top: 2px solid #D4AF37;
+  border-right: 2px solid #D4AF37;
+}
+.ornate-bl {
+  bottom: 6px;
+  left: 6px;
+  border-bottom: 2px solid #D4AF37;
+  border-left: 2px solid #D4AF37;
+}
+.ornate-br {
+  bottom: 6px;
+  right: 6px;
+  border-bottom: 2px solid #D4AF37;
+  border-right: 2px solid #D4AF37;
+}
+
+/* Floating animation for butterflies */
+@keyframes butterfly-float-1 {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(0.9);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.95;
+  }
+  50% {
+    transform: translate(-35px, -65px) rotate(-15deg) scale(1.05);
+  }
+  80% {
+    transform: translate(-55px, -130px) rotate(10deg) scale(0.95);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-75px, -200px) rotate(-8deg) scale(0.8);
+    opacity: 0;
+  }
+}
+
+@keyframes butterfly-float-2 {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(0.85);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.9;
+  }
+  50% {
+    transform: translate(30px, -70px) rotate(18deg) scale(1.02);
+  }
+  80% {
+    transform: translate(60px, -140px) rotate(-12deg) scale(0.9);
+    opacity: 0.75;
+  }
+  100% {
+    transform: translate(85px, -220px) rotate(15deg) scale(0.75);
+    opacity: 0;
+  }
+}
+
+@keyframes butterfly-float-3 {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(0.9);
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  60% {
+    transform: translate(5px, -90px) rotate(-8deg) scale(1);
+  }
+  100% {
+    transform: translate(10px, -240px) rotate(12deg) scale(0.7);
+    opacity: 0;
+  }
+}
+
+.butterfly-anim-1 {
+  animation: butterfly-float-1 4.5s ease-out infinite;
+}
+
+.butterfly-anim-2 {
+  animation: butterfly-float-2 5s ease-out infinite 0.9s;
+}
+
+.butterfly-anim-3 {
+  animation: butterfly-float-3 5.5s ease-out infinite 1.8s;
+}
+
+/* Wing flap */
+@keyframes wing-flap-left {
+  0%, 100% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(0.25);
+  }
+}
+
+@keyframes wing-flap-right {
+  0%, 100% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(0.25);
+  }
+}
+
+.flap-left {
+  transform-origin: right center;
+  animation: wing-flap-left 0.28s ease-in-out infinite alternate;
+}
+
+.flap-right {
+  transform-origin: left center;
+  animation: wing-flap-right 0.28s ease-in-out infinite alternate;
+}
+
+/* Soft glow */
+.gold-glow {
+  filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.45));
+}
+
+.emerald-card {
+  background: linear-gradient(180deg, rgba(7, 43, 33, 0.88) 0%, rgba(3, 26, 20, 0.95) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  backdrop-filter: blur(8px);
+}
